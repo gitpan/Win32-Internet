@@ -10,6 +10,7 @@
 # Version: 0.082 (04 Sep 2001)
 # Version: 0.083 (15 Apr 2008)
 # Version: 0.084 (13 Jun 2008)
+# Version: 0.085 (28 Nob 2013)
 #
 #######################################################################
 
@@ -153,7 +154,7 @@ sub AUTOLOAD {
 #######################################################################
 # STATIC OBJECT PROPERTIES
 #
-$VERSION = "0.084";
+$VERSION = "0.085";
 
 %callback_code = ();
 %callback_info = ();
@@ -1538,7 +1539,7 @@ Closes an Internet connection.  This can be applied to any
 Win32::Internet object (Internet connections, URLs, FTP sessions,
 etc.).  Note that it is not "strictly" required to close the
 connections you create, since the Win32::Internet objects are
-automatically closed when the program ends (or when you elsehow
+automatically closed when the program ends (or when you somehow
 destroy such an object).
 
 Example:
@@ -1980,7 +1981,7 @@ Example:
 
 Opens a connection to an HTTP, FTP or GOPHER Uniform Resource Location
 (URL).  Returns C<undef> on errors or a number if the connection was
-succesful.  You can then retrieve the URL content by applying the
+successful.  You can then retrieve the URL content by applying the
 methods C<QueryDataAvailable> and C<ReadFile> on the newly created
 I<urlobject>.  See also C<FetchURL>.
 
@@ -2404,7 +2405,7 @@ Example:
 =item Put local, [remote, context]
 
 Upload the I<local> file to the FTP server saving it under the name
-I<remote>, which if if omitted is the same name as I<local>.  Returns
+I<remote>, which if omitted is the same name as I<local>.  Returns
 C<undef> on error.
 
 I<context> is a number to identify this operation if it is asynchronous.
@@ -2484,7 +2485,7 @@ Example:
 =item OpenRequest requestobject, hashref
 
 Opens an HTTP request.  Returns C<undef> on errors or a number if the
-connection was succesful.  You can then use one of the C<AddHeader>,
+connection was successful.  You can then use one of the C<AddHeader>,
 C<SendRequest>, C<QueryInfo>, C<QueryDataAvailable> and C<ReadFile>
 methods on the newly created I<requestobject>.  The parameters and
 their values are:
@@ -2799,6 +2800,16 @@ use, refer to the Microsoft Win32 Internet Functions document.
 
 =over
 
+=item * 0.085 (28 Nov 2013)
+
+HttpSendRequest() now works for binary data too.
+Requested by Gregory Burmistrov.
+
+Fix required perl version 5.6 -> 5.006 and add Github repo link to
+META.yml.
+
+Typo fixes by David Steinbrunner.
+
 =item * 0.084 (13 Jun 2008)
 
 Move sample.pl and test-async.pl into the eg/ subdirectory to avoid
@@ -2810,7 +2821,7 @@ doesn't warn on undef.
 =item * 0.083 (15 Apr 2008)
 
 This release unfortunately did not update $Win32::Internet::VERSION.
-Only META.yml reffered to this release as version 0.083.
+Only META.yml referred to this release as version 0.083.
 
 =over
 
@@ -3038,7 +3049,7 @@ Roth for his great source code examples.
 This program is FREE; you can redistribute, modify, disassemble, or
 even reverse engineer this software at your will. Keep in mind,
 however, that NOTHING IS GUARANTEED to work and everything you do is
-AT YOUR OWN RISK - I will not take responsability for any damage, loss
+AT YOUR OWN RISK - I will not take responsibility for any damage, loss
 of money and/or health that may arise from the use of this program!
 
 This is distributed under the terms of Larry Wall's Artistic License.
